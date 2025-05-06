@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تمرين عربي</title>
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="menu-bar">
+      <!-- desktop: hidden; mobile: shows "% Complete" -->
+      <span id="header-stat"></span>
+      تمرين عربي
+    </div>
+  </header>
+
+  <main>
+    <aside class="sidebar">
+      <div><button id="new-practice-btn">New Practice</button></div><br />
+      <div>
+        <div class="sidebar-section stats" id="words-practiced">Words Practiced: -/-</div><br />
+        <div class="sidebar-section stats" id="percent-complete">Percent Complete: -%</div><br />
+        <div class="sidebar-section stats" id="accuracy">Accuracy: -%</div><br />
+        <div class="sidebar-section stats" id="points">Points: - pts</div><br />
+      </div>
+    </aside>
+
+    <section class="translate-section">
+      <h1>Translate</h1>
+      <div class="arabic-sentence" id="current-word">-</div>
+      <textarea id="translation-input" placeholder="Type your translation here..."></textarea>
+      <input type="text"
+             id="translation-input-mobile"
+             class="hidden mobile-input"
+             placeholder="Type your translation here..." />
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button id="submit-btn">يقدّم</button>
+        <button id="reveal-btn">كشف</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- New Practice Modal -->
+  <div id="practice-modal" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" id="practice-close">&times;</button>
+      <h2>New Practice</h2>
+      <div class="option-group">
+        <label for="num-words">Unique Words:</label>
+        <input type="number" id="num-words" min="1" />
+      </div>
+      <div class="option-group">
+        <label for="num-questions">Number of Questions:</label>
+        <input type="number" id="num-questions" min="1" />
+      </div>
+      <button class="begin-btn" id="begin-practice">Begin</button>
+    </div>
+  </div>
+
+  <div id="feedback-banner" class="feedback-banner hidden"></div>
+  <footer class="credit">جادن داف</footer>
+
+  <!-- Floating New Practice for Mobile -->
+  <button id="mobile-float-btn" class="floating-btn hidden">New Practice</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,434 @@
+body {
+    font-family: 'Noto Sans Arabic', 'Noto Sans', sans-serif;
+    margin: 0;
+    background: #f9f9f9;
+    color: #333;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  header {
+    position: relative;
+  }
+
+  .menu-bar {
+    background: #4CAF50;
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+    text-align: right;
+    font-weight: bold;
+    border-bottom-left-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .words-learned {
+    font-family: 'Noto Sans';
+    font-weight: 600;
+  }
+
+  main {
+    font-family: 'Noto Sans', sans-serif;
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+  }
+
+  .translate-section {
+    width: 100%;
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .translate-section h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .arabic-sentence {
+    font-size: 28px;
+    font-family: 'Noto Naskh Arabic';
+    margin-bottom: 20px;
+  }
+
+  #translation-input {
+    width: 100%;
+    height: 150px;
+    font-size: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    resize: none;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    font-family: 'Noto Sans';
+  }
+
+  #submit-btn {
+    background: #4CAF50;
+    color: white;
+    font-size: 24px;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Noto Sans Arabic', 'Noto Sans', sans-serif;
+  }
+
+  #submit-btn:hover {
+    background: #45a049;
+  }
+
+  footer.credit {
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    background: #28a745;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Noto Sans Arabic', 'Noto Sans', sans-serif;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+
+  .sidebar {
+    width: 320px;
+    background-color: #ffffff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar-section {
+    background-color: #f1f1f1;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .sidebar button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Noto Sans Arabic', 'Noto Sans', sans-serif;
+    width: 100%;
+  }
+
+  .sidebar button:hover {
+    background-color: #45a049;
+  }
+
+  .stats {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.8;
+  }
+
+  /* Modal styling */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    font-family: 'Noto Sans', sans-serif;
+  }
+
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 400px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    font-family: 'Noto Sans', sans-serif;
+  }
+
+  .modal-content h2 {
+    margin-top: 0;
+    font-size: 24px;
+  }
+
+  .option-group {
+    margin-bottom: 20px;
+  }
+
+  .option-buttons button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    font-family: 'Noto Sans', sans-serif;
+  }
+
+  .option-buttons button:hover {
+    background-color: #ddd;
+  }
+
+  .begin-btn {
+    background-color: red;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Noto Sans', sans-serif;
+  }
+
+  .close-btn {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #999;
+    font-family: 'Noto Sans', sans-serif;
+  }
+
+  .close-btn:hover {
+    color: black;
+  }
+
+
+  h1, strong, .menu-bar, button {
+    font-weight: normal !important;
+  }
+
+  .option-buttons button.selected {
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #ccc;
+  }
+
+  #reveal-btn {
+    background: orange;
+    color: white;
+    font-size: 24px;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 15px;
+    font-family: 'Noto Sans Arabic', 'Noto Sans', sans-serif;
+  }
+  
+  #reveal-btn:hover {
+    background: darkorange;
+  }
+  
+  .feedback {
+    animation-duration: 0.6s;
+    animation-fill-mode: both;
+  }
+  
+  .correct-animate {
+    animation-name: correctFlash;
+  }
+  
+  .incorrect-animate {
+    animation-name: incorrectFlash;
+  }
+  
+  @keyframes correctFlash {
+    from { background-color: #d4edda; }
+    to { background-color: transparent; }
+  }
+  
+  @keyframes incorrectFlash {
+    from { background-color: #f8d7da; }
+    to { background-color: transparent; }
+  }
+
+  .feedback-banner {
+    position: fixed;
+    bottom: 0;
+    left: 20px;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 12px 12px 0 0;
+    color: white;
+    font-family: 'Noto Sans Arabic', 'Noto Sans', sans-serif;
+    box-shadow: 0 0 12px rgba(0,0,0,0.3);
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .feedback-banner.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .feedback-correct {
+    background-color: #28a745;
+  }
+  
+  .feedback-incorrect {
+    background-color: #dc3545;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  
+/* desktop: hide sub-bar */
+.sub-bar {
+  display: none;
+  background: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sub-bar button {
+  background: #ffffff;
+  color: #4CAF50;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+/* === Mobile Adjustments === */
+@media (max-width: 768px) {
+  /* 1) Menu‐bar & sub‐bar radii */
+  .menu-bar {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .sub-bar {
+    top: 0;
+    border-radius: 0;
+    font-family: 'Noto Sans Arabic', sans-serif;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: #289842;
+  }
+  .sub-bar button {
+    font-family: 'Noto Sans Arabic', sans-serif;
+    font-size: 18px;
+  }
+
+  /* 2) Hide desktop sidebar, show sub-bar */
+  .sidebar { display: none; }
+  .sub-bar { display: flex; }
+
+  /* 3) Translate area centered and styled */
+  main {
+    flex-direction: column;
+    align-items: center; /* centers child content horizontally */
+  }
+  
+  .translate-section {
+    margin-top: 40px;
+    padding: 15px 20px;
+    width: 80%;
+    height: 60%;
+    border-radius: 15px; /* rounded corners */
+    background: white;
+  }
+
+  /* 4) Swap textarea for single-line input */
+  #translation-input {
+    display: none;
+  }
+  .mobile-input {
+    display: block;
+    width: 90%;
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-family: 'Noto Sans', sans-serif;
+  }
+
+  /* 5) Larger buttons */
+  #submit-btn, #reveal-btn {
+    padding: 12px 25px;
+    font-size: 22px;
+  }
+
+  /* 6) Modal tweaks (unchanged from before) */
+  .modal-content {
+    width: 90%;
+    margin: 20% auto;
+    padding: 20px;
+  }
+  .modal-content h2 { font-size: 20px; }
+  .option-group label,
+  .option-group input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  .begin-btn {
+    width: 100%;
+    font-size: 18px;
+    padding: 10px;
+  }
+}
+
+/* Floating button base style */
+.floating-btn {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4CAF50;
+  color: white;
+  font-size: 18px;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1001;
+  cursor: pointer;
+  font-family: 'Noto Sans Arabic', 'Noto Sans', sans-serif;
+  display: none; /* Hidden by default */
+}
+
+/* Show on mobile only */
+@media (max-width: 768px) {
+  #mobile-float-btn {
+    display: block;
+  }
+}
